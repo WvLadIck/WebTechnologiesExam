@@ -14,6 +14,148 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
+<!-- ===== ORDER MODAL ===== -->
+<div
+  class="modal fade"
+  id="orderModal"
+  tabindex="-1"
+>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <form id="orderForm">
+
+        <div class="modal-header">
+          <h5 class="modal-title">
+            Оформление заявки
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+          ></button>
+        </div>
+
+        <div class="modal-body">
+
+          <!-- Hidden -->
+          <input type="hidden" id="selectedCourseId">
+          <input type="hidden" id="selectedTutorId">
+
+          <div class="mb-3">
+            <label class="form-label">Курс</label>
+            <input
+              type="text"
+              class="form-control"
+              id="courseName"
+              readonly
+            >
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Преподаватель</label>
+            <input
+              type="text"
+              class="form-control"
+              id="teacherName"
+              readonly
+            >
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Дата начала</label>
+              <select
+                class="form-select"
+                id="dateStart"
+                required
+              ></select>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Время занятий</label>
+              <select
+                class="form-select"
+                id="timeStart"
+                disabled
+                required
+              ></select>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">
+              Количество студентов
+            </label>
+            <input
+              type="number"
+              class="form-control"
+              id="persons"
+              min="1"
+              max="20"
+              value="1"
+            >
+          </div>
+
+          <!-- OPTIONS -->
+          <h6>Дополнительные опции</h6>
+
+          <div class="form-check">
+            <input class="form-check-input option" type="checkbox" id="supplementary">
+            <label class="form-check-label">Дополнительные материалы</label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input option" type="checkbox" id="personalized">
+            <label class="form-check-label">Индивидуальные занятия</label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input option" type="checkbox" id="excursions">
+            <label class="form-check-label">Культурные экскурсии</label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input option" type="checkbox" id="assessment">
+            <label class="form-check-label">Оценка уровня</label>
+          </div>
+
+          <div class="form-check mb-3">
+            <input class="form-check-input option" type="checkbox" id="interactive">
+            <label class="form-check-label">
+              Интерактивная платформа
+            </label>
+          </div>
+
+          <div class="alert alert-secondary">
+            <strong>Итоговая стоимость:</strong>
+            <span id="totalPrice">0</span> ₽
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button
+            type="submit"
+            class="btn btn-success"
+          >
+            Отправить
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Отмена
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+
 <body>
 
 <!-- ===== HEADER ===== -->
@@ -225,4 +367,6 @@
 <script src="js/api.js"></script>
 <script src="js/courses.js"></script>
 <script src="js/tutors.js"></script>
+<script src="js/order.js"></script>
+
 

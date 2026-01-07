@@ -83,7 +83,7 @@ function renderCourses() {
       <td>
         <button
           class="btn btn-success btn-sm"
-          disabled
+          onclick='openOrderModal(${JSON.stringify(course)})'
         >
           Подать заявку
         </button>
