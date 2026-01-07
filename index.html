@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>LinguaSpace — языковая школа</title>
+
+  <!-- Bootstrap 5.3 -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="bg-dark text-white">
+  <nav class="navbar navbar-expand-lg navbar-dark container">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img
+        src="https://via.placeholder.com/40"
+        alt="Логотип"
+        class="me-2"
+      >
+      <span>LinguaSpace</span>
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#mainMenu"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Главная</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#courses">Курсы</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#tutors">Репетиторы</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="profile.html">Личный кабинет</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!-- ===== NOTIFICATIONS ===== -->
+<section class="container mt-3">
+  <div class="alert alert-info d-none" role="alert">
+    Здесь будут отображаться уведомления
+  </div>
+</section>
+
+<!-- ===== ABOUT SCHOOL ===== -->
+<section class="container mt-5">
+  <h2 class="mb-3">О языковой школе</h2>
+  <p>
+    LinguaSpace — современная языковая школа, предлагающая изучение
+    иностранных языков с опытными преподавателями и репетиторами.
+    Мы помогаем студентам развивать языковые навыки для учебы,
+    работы и путешествий.
+  </p>
+</section>
+
+<!-- ===== ADVANTAGES ===== -->
+<section class="container mt-5">
+  <h2 class="mb-4">Преимущества изучения языков</h2>
+
+  <div class="row text-center">
+    <div class="col-md-4 mb-3">
+      <div class="advantage-card p-3">
+        <h5>🌍 Международное общение</h5>
+        <p>Свободное общение с людьми по всему миру</p>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <div class="advantage-card p-3">
+        <h5>💼 Карьерный рост</h5>
+        <p>Повышение конкурентоспособности на рынке труда</p>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <div class="advantage-card p-3">
+        <h5>🎓 Образование</h5>
+        <p>Доступ к международным образовательным программам</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COURSES ===== -->
+<section class="container mt-5" id="courses">
+  <h2 class="mb-4">Доступные курсы</h2>
+
+  <!-- SEARCH -->
+  <form class="row g-3 mb-3">
+    <div class="col-md-6">
+      <input
+        type="text"
+        class="form-control"
+        id="courseSearch"
+        placeholder="Поиск по названию курса"
+      >
+    </div>
+
+    <div class="col-md-4">
+      <select class="form-select" id="courseLevel">
+        <option value="">Все уровни</option>
+        <option value="Beginner">Начальный</option>
+        <option value="Intermediate">Средний</option>
+        <option value="Advanced">Продвинутый</option>
+      </select>
+    </div>
+  </form>
+
+  <!-- TABLE -->
+  <div class="table-responsive">
+    <table class="table table-bordered align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>Название</th>
+          <th>Уровень</th>
+          <th>Преподаватель</th>
+          <th>Действие</th>
+        </tr>
+      </thead>
+      <tbody id="coursesTable"></tbody>
+    </table>
+  </div>
+
+  <!-- PAGINATION -->
+  <nav>
+    <ul class="pagination justify-content-center" id="coursesPagination"></ul>
+  </nav>
+</section>
+
+
+<!-- ===== TUTORS ===== -->
+<section class="container mt-5" id="tutors">
+  <h2 class="mb-4">Репетиторы</h2>
+
+  <!-- Tutors filter -->
+  <form class="row g-3 mb-3">
+    <div class="col-md-6">
+      <select class="form-select">
+        <option selected>Квалификация</option>
+        <option>Начальный</option>
+        <option>Средний</option>
+        <option>Продвинутый</option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Опыт (лет)"
+      >
+    </div>
+  </form>
+
+  <!-- Tutors table -->
+  <div class="table-responsive">
+    <table class="table table-bordered align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>Фото</th>
+          <th>Имя</th>
+          <th>Уровень</th>
+          <th>Языки</th>
+          <th>Опыт</th>
+          <th>Цена</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <img
+              src="https://via.placeholder.com/50"
+              alt="Фото"
+            >
+          </td>
+          <td>Ирина Петровна</td>
+          <td>Продвинутый</td>
+          <td>English, Russian</td>
+          <td>5 лет</td>
+          <td>500 ₽/час</td>
+          <td>
+            <button class="btn btn-primary btn-sm">
+              Выбрать
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-dark text-white mt-5 p-4">
+  <div class="container text-center">
+    <p class="mb-1">Контакты: info@linguaspace.ru</p>
+    <p class="mb-0">
+      <a href="#" class="footer-link">VK</a> |
+      <a href="#" class="footer-link">Telegram</a> |
+      <a href="#" class="footer-link">YouTube</a>
+    </p>
+  </div>
+</footer>
+
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+></script>
+</body>
+</html>
+
+<script src="js/api.js"></script>
+<script src="js/courses.js"></script>
