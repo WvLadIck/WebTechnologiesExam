@@ -18,3 +18,7 @@ body {
 .footer-link:hover {
   text-decoration: underline;
 }
+
+.tutor-selected {
+  background-color: #d1e7dd !important;
+}
