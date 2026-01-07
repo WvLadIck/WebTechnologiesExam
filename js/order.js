@@ -140,3 +140,53 @@ document.getElementById('persons')
 
 document.getElementById('timeStart')
   .addEventListener('change', calculatePrice);
+
+
+document
+  .getElementById('orderForm')
+  .addEventListener('submit', async event => {
+    event.preventDefault();
+
+    try {
+      const orderData = {
+        course_id: Number(selectedCourse.id),
+        tutor_id: selectedTutorId || 0,
+        date_start: dateStart.value,
+        time_start: timeStart.value,
+        duration:
+          selectedCourse.week_length *
+          selectedCourse.total_length,
+        persons: Number(persons.value),
+        price: Number(totalPrice.textContent),
+
+        early_registration: false,
+        group_enrollment: persons.value >= 5,
+        intensive_course: selectedCourse.week_length >= 5,
+
+        supplementary: supplementary.checked,
+        personalized: personalized.checked,
+        excursions: excursions.checked,
+        assessment: assessment.checked,
+        interactive: interactive.checked
+      };
+
+      await apiPost('/orders', orderData);
+
+      showAlert(
+        'Заявка успешно создана',
+        'success'
+      );
+
+      document.getElementById('orderForm').reset();
+      bootstrap.Modal.getInstance(
+        document.getElementById('orderModal')
+      ).hide();
+
+    } catch (error) {
+      showAlert(
+        'Ошибка при создании заявки',
+        'danger'
+      );
+    }
+  });
+ 
