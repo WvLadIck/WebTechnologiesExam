@@ -46,28 +46,22 @@ function filterTutors() {
 
   filteredTutors = allTutors.filter(tutor => {
     const matchesLanguage =
-      !language ||
-      tutor.languages_offered.includes(language);
+      !language || tutor.languages_offered.includes(language);
 
     const matchesLevel =
       !level || tutor.language_level === level;
 
     const matchesExperience =
-      !experience ||
-      tutor.work_experience >= Number(experience);
+      !experience || tutor.work_experience >= Number(experience);
 
-    return (
-      matchesLanguage &&
-      matchesLevel &&
-      matchesExperience
-    );
+    return matchesLanguage && matchesLevel && matchesExperience;
   });
 
   renderTutors();
 }
 
 /**
- * Отрисовка таблицы
+ * Отрисовка таблицы репетиторов
  */
 function renderTutors() {
   const tbody = document.getElementById('tutorsTable');
@@ -75,7 +69,9 @@ function renderTutors() {
 
   filteredTutors.forEach(tutor => {
     const row = document.createElement('tr');
+    row.dataset.tutorId = tutor.id;
 
+    // 🔹 Подсветка выбранного репетитора
     if (tutor.id === selectedTutorId) {
       row.classList.add('tutor-selected');
     }
@@ -83,10 +79,10 @@ function renderTutors() {
     row.innerHTML = `
       <td>
         <img
-          src="assets/tutor-placeholder.png"
+          src="https://img.icons8.com/?size=100&id=J5Rh923VgFPM&format=png&color=000000"
           alt="Фото"
-          width="50"
-          height="50"
+          width="40"
+          height="40"
         >
       </td>
       <td>${tutor.name}</td>
@@ -101,6 +97,7 @@ function renderTutors() {
       </td>
     `;
 
+    // 🔹 Кнопка выбора репетитора
     row.querySelector('button').addEventListener('click', () => {
       selectTutor(tutor.id);
     });
@@ -114,5 +111,18 @@ function renderTutors() {
  */
 function selectTutor(tutorId) {
   selectedTutorId = tutorId;
-  renderTutors();
+
+  // 🔹 Убираем подсветку со всех строк
+  document
+    .querySelectorAll('#tutorsTable tr')
+    .forEach(row => row.classList.remove('tutor-selected'));
+
+  // 🔹 Добавляем подсветку выбранной строке
+  const selectedRow = document.querySelector(
+    `#tutorsTable tr[data-tutor-id="${tutorId}"]`
+  );
+
+  if (selectedRow) {
+    selectedRow.classList.add('tutor-selected');
+  }
 }

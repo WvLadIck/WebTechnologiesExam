@@ -19,6 +19,56 @@ body {
   text-decoration: underline;
 }
 
+
 .tutor-selected {
-  background-color: #d1e7dd !important;
+  background-color: #4fe6c7 !important;
+  border-left: 60px solid #198754;
 }
+
+.tutor-photo {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.advantage-card {
+  border: 2px solid #dee2e6;
+  border-radius: 12px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.advantage-card:hover {
+  border-color: #0d6efd;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+.advantage-icon {
+  font-size: 48px;
+}
+
+.about-card {
+  border: 2px solid #dee2e6;
+  border-radius: 12px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.about-card:hover {
+  border-color: #0d6efd;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+.about-icon {
+  font-size: 48px;
+}
+
+.navbar-logo {
+  width: 60px;
+  height: 50px;
+  object-fit: contain;
+}
+
